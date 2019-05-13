@@ -1,9 +1,8 @@
-package com.o_bdreldin.bookkeeper.ui.main
+package com.o_bdreldin.bookkeeper.ui.main_container
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.o_bdreldin.bookkeeper.R
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 

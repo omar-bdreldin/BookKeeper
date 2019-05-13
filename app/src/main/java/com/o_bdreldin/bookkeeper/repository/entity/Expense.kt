@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
  * Created by Omar Bdreldin on 5/12/2019
  */
 @Entity
-class Expense {
+data class Expense(val i: Int) {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0
 

@@ -7,14 +7,14 @@ abstract class BaseFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initListeners()
         initViewModel()
+        initViews()
+        initListeners()
         initObservers()
     }
 
-    protected abstract fun initListeners()
-
     protected abstract fun initViewModel()
-
+    protected abstract fun initViews()
+    protected abstract fun initListeners()
     protected abstract fun initObservers()
 }
