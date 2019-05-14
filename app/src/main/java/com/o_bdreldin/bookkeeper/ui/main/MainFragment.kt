@@ -1,13 +1,16 @@
 package com.o_bdreldin.bookkeeper.ui.main
 
+import android.animation.ObjectAnimator
 import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.RotateAnimation
 
 import com.o_bdreldin.bookkeeper.R
 import com.o_bdreldin.bookkeeper.base.BaseFragment
+import kotlinx.android.synthetic.main.splash_fragment.*
 
 class MainFragment : BaseFragment() {
 
