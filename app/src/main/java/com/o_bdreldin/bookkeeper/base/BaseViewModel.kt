@@ -10,7 +10,7 @@ abstract class BaseViewModel : AndroidViewModel {
 
     protected val disposables = CompositeDisposable()
 
-    protected lateinit var repository : Repository
+    protected val repository : Repository
 
     constructor(application: Application) : super(application) {
         repository = Repository_Impl_1(application)

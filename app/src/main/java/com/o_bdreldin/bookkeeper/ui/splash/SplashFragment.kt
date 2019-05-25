@@ -1,23 +1,22 @@
 package com.o_bdreldin.bookkeeper.ui.splash
 
-import android.animation.Animator
-import android.animation.ObjectAnimator
-import android.animation.ValueAnimator
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.Animation
-
+import androidx.core.animation.doOnEnd
+import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
+import com.o_bdreldin.bookkeeper.AnimationFactory
 import com.o_bdreldin.bookkeeper.R
 import com.o_bdreldin.bookkeeper.base.BaseFragment
 import kotlinx.android.synthetic.main.splash_fragment.*
 
 class SplashFragment : BaseFragment() {
+
+    var navController : NavController? = null
 
     companion object {
         fun newInstance() = SplashFragment()
@@ -37,8 +36,9 @@ class SplashFragment : BaseFragment() {
     }
 
     override fun initViews() {
-
+        navController = findNavController()
     }
+
     override fun initListeners() {
     }
 
@@ -47,23 +47,17 @@ class SplashFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        startLogoAnimation()
+        AnimationFactory.createYRotatationAniamtion(logo_image_view)?.let {
+            it.duration = 1000
+            it.startDelay = 300
+            it.doOnEnd {
+                navController?.navigate(R.id.action_splashFragment_to_mainFragment)
+            }
+            it.start()
+        }
     }
 
-    private fun startLogoAnimation() {
-        val animation = ObjectAnimator.ofFloat(logo_image_view, "rotationY", 0f, 360f)
-        animation.duration = 1000
-        animation.interpolator = AccelerateDecelerateInterpolator()
-        animation.addListener(object : Animator.AnimatorListener {
-            override fun onAnimationRepeat(animation: Animator?) {
-            }
-            override fun onAnimationEnd(animation: Animator?) {
-            }
-            override fun onAnimationStart(animation: Animator?) {
-            }
-            override fun onAnimationCancel(animation: Animator?) {
-            }
-        })
-        animation.start()
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 }

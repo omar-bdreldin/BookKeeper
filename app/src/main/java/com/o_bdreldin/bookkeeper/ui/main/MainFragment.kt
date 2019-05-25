@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.splash_fragment.*
 
 class MainFragment : BaseFragment() {
 
+    private binding: MainFragmentBinding
+
     companion object {
         fun newInstance() = MainFragment()
     }
