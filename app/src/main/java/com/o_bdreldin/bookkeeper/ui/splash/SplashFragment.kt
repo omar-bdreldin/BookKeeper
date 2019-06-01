@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import androidx.core.animation.doOnEnd
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import com.o_bdreldin.bookkeeper.AnimationFactory
+import com.o_bdreldin.bookkeeper.util.AnimationFactory
 import com.o_bdreldin.bookkeeper.R
 import com.o_bdreldin.bookkeeper.base.BaseFragment
 import kotlinx.android.synthetic.main.splash_fragment.*
@@ -35,7 +34,7 @@ class SplashFragment : BaseFragment() {
         viewModel = ViewModelProviders.of(this).get(SplashViewModel::class.java)
     }
 
-    override fun initViews() {
+    override fun initViews(view: View) {
         navController = findNavController()
     }
 
@@ -47,7 +46,7 @@ class SplashFragment : BaseFragment() {
 
     override fun onResume() {
         super.onResume()
-        AnimationFactory.createYRotatationAniamtion(logo_image_view)?.let {
+        AnimationFactory.createYRotationAnimation(logo_image_view)?.let {
             it.duration = 1000
             it.startDelay = 300
             it.doOnEnd {

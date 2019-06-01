@@ -10,11 +10,9 @@ import androidx.room.Update
  */
 abstract class BaseDao<T> {
     @Insert
-    abstract fun insert(o: T) : Long
-    @Insert
-    abstract fun insert(list: List<T>) : LongArray
+    abstract fun insert(vararg o: T)
     @Delete
-    abstract fun delete(o: T) : Int
-    @Update(onConflict = OnConflictStrategy.ABORT)
-    abstract fun update(o: T)
+    abstract fun delete(vararg o: T)
+    @Update
+    abstract fun update(vararg o: T)
 }

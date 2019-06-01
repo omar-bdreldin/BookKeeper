@@ -1,4 +1,4 @@
-package com.o_bdreldin.bookkeeper
+package com.o_bdreldin.bookkeeper.util
 
 import android.animation.ObjectAnimator
 import android.view.View
@@ -8,7 +8,7 @@ import android.view.View
  */
 class AnimationFactory {
     companion object {
-        fun createYRotatationAniamtion(view : View) : ObjectAnimator? {
+        fun createYRotationAnimation(view : View) : ObjectAnimator? {
             return ObjectAnimator.ofFloat(view, "rotationY", 0f, 360f)
         }
     }
